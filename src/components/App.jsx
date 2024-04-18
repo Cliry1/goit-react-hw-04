@@ -58,7 +58,7 @@ export default function App() {
         }
         setTotalPages(data.total_pages);
         setArticles((prevArticles) => [...prevArticles, ...data.results]);
-        console.log(data);
+
       } catch (error) {
         toast.error("Error!!!");
         setError(true);
@@ -66,6 +66,7 @@ export default function App() {
         setTotalPages(null);
         setPageCount(1);
         setTopic("");
+        
       } finally {
         setLoading(false);
       }
