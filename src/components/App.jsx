@@ -8,22 +8,7 @@ import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
-import Modal from "react-modal";
-Modal.setAppElement("#root");
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "#fff",
-  },
-  overlay: {
-    backgroundColor: "#010101db",
-  },
-};
+
 
 export default function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -111,14 +96,8 @@ export default function App() {
       )}
 
       <Toaster position="top-right " />
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <ImageModal img={modalItem} />
-      </Modal>
+      <ImageModal img={modalItem} closeModal={closeModal} modalIsOpen={modalIsOpen}/>
+      
       {loading && (
         <div className={css.loader}>
           <Loader />

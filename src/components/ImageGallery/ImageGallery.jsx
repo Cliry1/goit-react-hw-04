@@ -5,8 +5,8 @@ export default function ImageGallery({ items, openModal }) {
   return (
     <ul className={css.ul}>
       {items.map((item) => (
-        <li key={item.id} onClick={() => openModal(item)}>
-          <ImageCard item={item} />
+        <li key={item.id} >
+          <ImageCard item={item} openModal={openModal}/>
         </li>
       ))}
     </ul>
